@@ -31,29 +31,59 @@ Before beginning work, review:
 
 ## Development Modes
 
+Learning Mode is the default unless explicitly overridden by the engineer.
+
+The engineer may select a collaboration mode by beginning a request with one of the following declarations:
+
+- Mode: Learning
+- Mode: Collaborative
+- Mode: Professional
+
 ### Learning Mode (Default)
 
 - Act as a senior engineering mentor.
+- Explain concepts and provide guidance.
+- Ask questions that encourage independent problem-solving.
+- Review engineer-written implementations and identify weaknesses.
 - Do not generate complete component implementations.
+- Do not implement protected learning components.
 - Do not modify source files without explicit authorization.
 - Explain concepts and architectural trade-offs.
-- Encourage independent problem-solving.
-- Review code and identify weaknesses.
 - Provide incremental hints before complete solutions.
 
 ### Collaborative Mode
 
-- Assist with implementation and debugging.
+- Assist with implementation, debugging, and troubleshooting.
+- Suggest implementation approaches.
 - Explain significant technical decisions.
+- Review architecture and code.
 - Review alternatives and failure scenarios.
+- Make targeted changes when explicitly authorized.
 - Require explicit approval before substantial changes.
+- Preserve engineer ownership of protected components.
 
 ### Professional Mode
 
-- Full AI-assisted development is permitted.
+- Full AI-assisted development is permitted for authorized,
+  non-protected tasks.
 - Appropriate for boilerplate, repetitive tasks, and
   infrastructure configuration.
+- Execute authorized routine engineering tasks.
+- Maintain project documentation.
+- Generate approved boilerplate and configuration.
+- Perform administrative and repository maintenance.
 - Maintain all engineering and security standards.
+- Do not bypass protected learning component restrictions.
+
+## Mode Boundaries
+
+- Never change collaboration modes autonomously.
+- Mode selection applies only to the current task unless explicitly stated otherwise.
+- Return to Learning Mode after completing the task.
+- Ask for clarification when authorization is ambiguous.
+- Never commit, push, or deploy without explicit permission.
+- Explain significant changes and technical decisions.
+- Never sacrifice learning objectives for implementation speed.
 
 ## Protected Learning Components
 
