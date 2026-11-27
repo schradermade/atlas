@@ -1,6 +1,6 @@
 # PROJECT ATLAS
 
-### v2 · Enterprise Applied AI Engineering & Developer Enablement Residency
+### v1 · Enterprise Applied AI Engineering & Developer Enablement
 
 > **43 weeks** · **172 sessions** · **344 hours** · 4 × 2 hours per week
 
@@ -8,11 +8,14 @@
 |---:|---:|---:|
 | 260 hours | 78 hours | 6 hours |
 
-**Companion to:** `PROJECT_ATLAS_MASTER_SPECIFICATION.md` v2.0. **Start:** resume ATL-001; do not redo verified repository setup. **Cadence:** 4 × 120 minutes/week; 172 sessions, 344 hours. 260 engineering hours (G), 78 enablement hours (E), 6 reserve hours (B). Calendar weeks are relative to the restart, not dates. This is a proposed execution schedule, not a change to customer requirements or a guarantee of finishing in 43 weeks.
+**Companion:** `PROJECT_ATLAS_MASTER_SPECIFICATION.md`
+
+**Starting point:** ATL-001 — Customer Discovery. Continue from the existing repository setup.
 
 ## Navigation
 
 - [Operating protocol](#operating-protocol)
+  - [Daily workflow — start here](#daily-workflow--start-here)
 - [Phase gates and dependencies](#phase-gates-and-dependencies)
 - [Schedule](#schedule)
   - [Phase 01 · Engineering foundations](#phase-01--engineering-foundations)
@@ -21,40 +24,140 @@
   - [Phase 04 · Advanced agent orchestration](#phase-04--advanced-agent-orchestration)
   - [Phase 05 · AI evaluation and security](#phase-05--ai-evaluation-and-security)
   - [Phase 06 · Production engineering](#phase-06--production-engineering)
-  - [Phase 07 · Professional readiness](#phase-07--professional-readiness)
+  - [Phase 07 · Final review and developer enablement](#phase-07--final-review-and-developer-enablement)
 - [Reference index](#reference-index--targeted-reading)
-- [Coverage and release discipline](#coverage-and-release-discipline)
+- [Curriculum coverage and final review](#curriculum-coverage-and-final-review)
 - [Session record template](#session-record-template)
 
 
 ## Operating protocol
 
-- One evolving Atlas repository and synthetic Meridian engagement. No parallel toy projects; isolated spikes become tests, ADR evidence or teaching demos. First customer one-pager is independently authored. Preserve the original transcript.
-- Each ordinary session: 10 min opening recall, 15 min focused learning, 80 min flexible engineering or enablement work, 15 min closing check-in including tests/evidence and log. Use the weekly daily check-ins in order, but treat implementation assignments as a weekly backlog rather than fixed daily deadlines. Special assessment/workshop timing below takes precedence; embed check-ins in those blocks, not extra time. Reserve sessions remain reserve; use prompts only if studying. For assessment sessions use the explicit 30/30/30/30 split instead; workshops may use 40 min preparation, 30 min delivery, 25 min Q&A/failure, 25 min feedback. No extra homework assumed. Split unfinished work into the next session; never mark an unverified task done.
-- Default Learning Mode for protected components; ask mentor for hints and review, not implementations. Collaborative/Professional only when explicitly authorized; protected rules in AGENTS.md remain binding. No automatic commit, push, deploy or publish. External service and commercial admin access are prerequisites to real demonstrations; label simulations and blocked work distinctly.
-- Before every implementation: specify input/output, failure case and test; after implementation: run targeted tests and explain code without AI. Every week capture actual hours, PR/commit or artifact path, test output, decision, open risks, next task in PROGRESS.md and BACKLOG.md. Use existing backlog IDs where applicable; create new IDs only as needed.
-- Use the referenced reading selectively; do not read entire manuals or books. Pin versions and note doc access date. Read relevant docs again when products change. Every four weeks score all master-spec competencies 0–3 (0 cannot explain, 1 with help, 2 independent implementation, 3 independent diagnosis and trade-offs); record evidence and next remediation. For unobserved competencies mark not assessed, not zero. Revisit earlier topics during recall. No senior-title or hiring guarantee.
-- Weekly spend check; local mock inference for load. Verify AWS access and cost before provisioning, smallest short-lived staging, approved teardown, check inventory; budget alerts are not caps. Synthetic data and dedicated keys only. Never use employer material.
-- **Pacing gate:** 6 hours is a small reserve, not enough for every unknown. At weeks 4, 12, 24, 36 compare actual effort and exit criteria; defer optional framework adoption, extra demos or polishing before sacrificing protected work. If still behind, extend calendar with four sessions/week; do not silently compress or skip. Unresolved security or customer prerequisites block affected downstream work; work on independent tasks while waiting.
+Build one evolving Atlas project around the fictional Meridian customer engagement. Use experiments to inform tests, architecture decisions and workshops. Write the first customer one-pager independently and keep the discovery transcript.
+
+### Daily workflow — start here
+
+#### 1. Open the workspace
+
+```bash
+cd ~/applied-ai/atlas
+git status --short --branch
+# Pull if the working tree is clean.
+git pull --ff-only origin main
+source .venv/bin/activate
+code .
+```
+
+Review local changes before pulling if the working tree is not clean. Open the study plan, `docs/PROGRESS.md` and `docs/BACKLOG.md`. Find your next learning check-in and engineering task. Consult the master specification and repository instructions as needed.
+
+#### 2. Start a mentor session
+
+Copy into ChatGPT and fill in the week and session:
+
+```text
+Atlas — Week [number], Session [number]
+Mode: Learning
+
+Use my study plan, progress and backlog to continue where I left off.
+Start with the opening knowledge check, one question at a time.
+Review any concepts I struggled with last session, then guide me through
+this session's concepts, terms and reading. Help me work through the
+engineering assignment with questions, hints and feedback rather than
+writing the core implementation for me. Ask for missing context.
+```
+
+Share current progress and the relevant weekly plan if the mentor does not have them.
+
+#### 3. Study for two hours
+
+| Time | Activity |
+|---|---|
+| 00:00–00:10 | Opening recall and review of weak concepts |
+| 00:10–00:25 | Concepts, terminology and targeted reading |
+| 00:25–01:45 | Engineering or developer enablement |
+| 01:45–02:00 | Closing check-in, tests and progress notes |
+
+Follow the daily learning check-ins in order. Treat engineering assignments as a weekly backlog, not daily deadlines. Carry unfinished work forward. Include setup, tests and documentation in the two hours.
+
+For formal assessments, spend 30 minutes each on independent coding, design, failure diagnosis and scoring. For workshops, use 40 minutes for preparation, 30 for delivery, 25 for questions and troubleshooting, and 25 for feedback. Fit learning check-ins into these blocks. Use reserve sessions for unfinished work.
+
+#### 4. Choose the right tool
+
+| Responsibility | Tool |
+|---|---|
+| Instruction, quizzes, customer simulations and architecture discussions | ChatGPT |
+| Repository navigation, debugging and code review | Codex or Claude Code |
+| Core engineering and independent assessments | You |
+| Boilerplate and automation | Codex or Claude Code |
+| Progress and source control | Repository / GitHub |
+
+Start each task in **Learning Mode**: solve problems independently and ask for hints or review. Use **Collaborative Mode** for explicitly requested debugging or implementation assistance and **Professional Mode** for authorized non-protected work. Follow `AGENTS.md` and `CLAUDE.md` for protected components and tool permissions. Complete formal independent assessments without AI. Approve commits, pushes, deployments and publication yourself.
+
+Before implementing, define inputs, outputs, a failure case and a test. Afterward, run the tests and explain your code without AI.
+
+#### 5. Close the session
+
+Copy into ChatGPT:
+
+```text
+Atlas — End of Week [number], Session [number]
+
+Conduct my closing knowledge check one question at a time. Score my
+answers, correct misconceptions and revisit weak opening answers.
+Ask me to explain a design choice, failure mode or test from today's work.
+Prepare a short PROGRESS.md entry and any BACKLOG.md updates based on
+my actual results. Identify my next task and any unfinished work.
+```
+
+Score each daily response: **0** = unable to answer, **1** = with help, **2** = independent and accurate. Answer from memory first, then consult the mentor or references. For new topics, state a hypothesis and revisit it at closing. Review scores below 2 at the next opening.
+
+Record actual hours, answers and corrections, artifacts, test results, decisions, blockers and the next task. Use the session record template below and existing backlog IDs. Mark tasks complete after verifying them. Review `git diff` and staged changes before committing and pushing. Keep credentials, private records and employer material out of the repository.
+
+#### 6. Resume or adjust the plan
+
+When starting a new conversation, share the master specification, relevant study plan, progress, backlog and repository instructions. Include relevant design decisions or test results. ChatGPT cannot automatically see your local changes.
+
+If blocked, record what failed, what you tried and your next step. Ask for a hint or move to an independent task. After a missed day, resume the next check-in rather than doubling the workload. Repeat failed assessments or prerequisite tests before dependent work.
+
+#### Session checklist
+
+- [ ] Open the workspace and review progress.
+- [ ] Start the mentor session in Learning Mode.
+- [ ] Complete opening recall and focused reading.
+- [ ] Work on a weekly assignment and run relevant tests.
+- [ ] Complete closing recall and score understanding.
+- [ ] Record progress, blockers and next steps.
+- [ ] Review changes and commit when ready.
+
+### Weekly and monthly review
+
+Read the relevant sections of the listed resources rather than entire books or manuals. Record versions and access dates for technical references. Revisit earlier concepts during recall.
+
+Every four weeks, assess the master-spec competencies separately from daily check-ins: **0** = cannot explain, **1** = with help, **2** = independent implementation, **3** = independent diagnosis and trade-offs. Record evidence and areas to improve; mark unobserved skills as not assessed. Follow the scheduled formal assessments, including the week-40 score update and week-41 assessment.
+
+At weeks 4, 12, 24 and 36, review progress against the phase milestones. Defer optional framework adoption, extra demos or polish before cutting core engineering work. Use reserve time or extend the schedule if needed.
+
+### Project environment
+
+Use synthetic data and dedicated credentials. Mock inference for load tests. Check spending weekly, verify AWS access and estimated costs before provisioning, use short-lived staging resources and verify teardown. Budget alerts do not cap spending. Clearly label simulated features and access blockers. Keep production integrations read-only; test mutations only in the separately approved sandbox.
 
 ## Phase gates and dependencies
 
 | Gate | Planned week | Required evidence before moving forward |
 |---|---:|---|
 | Discovery and skeleton | 2 | One-pager, technical discovery, approved scope and trust boundaries, API contract, runnable tests/CI; no DB or cloud yet |
-| Read-only vertical slice | 6 | End-to-end tool investigation, initial eval/security cases, explicit abstention, stakeholder review; separate enablement mandate |
-| Data and security | 12 | Durable storage, retrieval, MCP, OIDC and tenant ACL tests; deny paths proven before greater exposure |
+| Read-only vertical slice | 6 | End-to-end tool investigation, initial eval/security cases, explicit abstention, stakeholder review; agree on developer enablement scope |
+| Data and security | 12 | Durable storage, retrieval, MCP, OIDC and tenant ACL tests; test denied access before expanding use |
 | Reliability | 17 | Baseline, cache/limiter, job lease, retries and replay tests; provider comparison |
 | Workflow safety | 23 | Restartable state, bounded tools, separately authorized sandbox approvals, deterministic denial and audit |
-| Quality | 28 | Held-out 40 cases, target ≥85% provisional task success, independent safety gates, point-in-time shadow simulation; no real pilot claims |
-| Operations and staging | 36 | Trace/runbooks, IaC deployment evidence or documented access blocker, load and recovery results, release decision |
-| Handoff | 43 | F1–F8 traceability, customer acceptance simulation, six workshops and adoption/portfolio artifacts, final assessments and teardown |
+| Quality | 28 | Held-out 40 cases, target ≥85% provisional task success, independent safety gates, point-in-time shadow simulation; review simulated pilot results |
+| Operations and staging | 36 | Trace/runbooks, IaC deployment results or access blocker, load and recovery results, release decision |
+| Handoff | 43 | F1–F8 test results, customer acceptance simulation, six workshops and adoption/portfolio artifacts, final assessments and teardown |
 
 ## Schedule
 
-Use the weekly concepts and terms during the existing reading and recall blocks. Answer the knowledge checkpoint from memory and use the session evidence to verify the learning objective; no additional hours are allocated.
+Each week contains concepts, terms, reading, four learning check-ins and four two-hour assignments. Answer the knowledge questions from memory and demonstrate understanding through your work.
 
-Each numbered session is exactly two planned hours. The numbered assignments are suggested sequencing, not fixed daily deadlines; preserve dependencies, G/E/B allocations and gates. The actionable assignment includes its evidence; record actual outcomes rather than assuming success. G includes customer discovery, implementation, design, security, assessment, operations and engineering documentation. E covers developer enablement and teaching; some G sessions naturally build evidence used by E. B is protected scheduling reserve.
+**G** = engineering (including discovery, design, testing and operations). **E** = developer enablement and teaching. **B** = reserve. Follow dependencies and phase milestones while moving unfinished assignments between sessions as needed.
 
 ---
 
@@ -88,16 +191,12 @@ Discovery distinguishes business outcomes from implementation choices; define sc
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: How would you distinguish a requirement from a proposed solution? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why not promise MTTR improvement before a pilot? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A stakeholder asks for automatic remediation: what must be clarified before changing scope? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain the pilot success criteria to Finance. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -136,16 +235,12 @@ Typed API contracts and asynchronous request handling; automated checks establis
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes async I/O from CPU parallelism? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why validate requests at the API boundary? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A slow dependency blocks unrelated requests: how would you investigate? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Sketch request validation, cancellation and error handling. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -184,16 +279,12 @@ Provider abstraction isolates model-specific behavior; bounded calls protect lat
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is the difference between input and output tokens? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: When is streaming useful versus a complete response? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A provider returns 429 then times out: what should the client do? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain provider abstraction and its limits. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -232,16 +323,12 @@ Typed tool interfaces separate untrusted inputs from authorized operations; fixt
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is the difference between validation and authorization? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why should tool outputs be treated as untrusted? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A valid tool request targets another tenant: where should it fail? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain the connector contract to a security reviewer. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -280,16 +367,12 @@ Bounded agent loops alternate model decisions and validated tool execution; abst
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes an agent loop from a fixed workflow? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why bound tool calls and token usage separately? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: The model repeats the same tool call: how should execution stop? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain how evidence and abstention are represented. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -328,8 +411,6 @@ Vertical slices test the whole path early; regression and security checks preced
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is a vertical slice? | Define two weekly terms in your own words; correct one misconception. |
@@ -337,13 +418,11 @@ Vertical slices test the whole path early; regression and security checks preced
 | 3 · Challenge | Scenario: The prototype gives a plausible answer with no evidence: what is your decision? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Present the prototype limits and next gate. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
 
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
-
 #### Session plan
 
 - [ ] **Session 1 · G · 2h:** Connect API, agent and mock systems; test end-to-end incident with traceable ID.
 - [ ] **Session 2 · G · 2h:** Write initial development eval cases including injection, missing evidence and out-of-scope; run regression.
-- [ ] **Session 3 · G · 2h:** Demo to Meridian; record acceptance, risks and separate developer enablement authorization; no real incident claims.
+- [ ] **Session 3 · G · 2h:** Demo to Meridian; record acceptance, risks and separate developer enablement authorization.
 - [ ] **Session 4 · E · 2h:** Claude Code hooks lab: block protected operations in sandbox, test failure behavior; log actual vs simulated controls.
 
 ---
@@ -378,16 +457,12 @@ Relational persistence and transaction boundaries protect state across failures.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What are atomicity and isolation? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why use a transaction rather than two independent writes? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A crash occurs between state updates: what should recovery observe? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain repository boundaries and rollback. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -426,16 +501,12 @@ Retrieval quality depends on ingestion, representation and ranking.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes an embedding from a chunk? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why version source documents and preserve provenance? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A runbook changes after ingestion: how do you detect stale evidence? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain retrieval quality versus generation quality. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -474,16 +545,12 @@ Authorization must constrain retrieval before model exposure; measure relevance 
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is the difference between authentication and authorization? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why filter retrieval before model exposure? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: Two tenants have near-identical documents: design a leakage test. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain how permissions propagate from request to retrieval. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -522,16 +589,12 @@ MCP standardizes tool discovery and invocation but does not replace authorizatio
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What are MCP tools and transport? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: When would REST be simpler than MCP? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: An MCP server advertises a tool the caller cannot use: what happens? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain MCP lifecycle and authorization boundaries. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -571,16 +634,12 @@ Identity proves who acts; authorization determines permitted actions.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes an ID token from an access token? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why is decoding a JWT not validation? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A correctly signed token has the wrong audience: what should happen? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain OIDC and SCIM without conflating them. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -619,16 +678,12 @@ Defense in depth requires testing bypasses and tenant isolation end to end.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is deny by default? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why is a UI permission check insufficient? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A revoked user has cached access: how would you test the boundary? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Defend the security gate with negative test evidence. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -669,16 +724,12 @@ Measure before optimizing; throughput, concurrency and latency are distinct.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes p50 from p95? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why measure throughput and latency together? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: Latency rises under load but CPU is low: what evidence would you collect? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain the benchmark workload and limitations. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -718,16 +769,12 @@ Caching trades freshness for speed; distributed limits require atomic state chan
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is a cache key and TTL? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why must a rate limiter update atomically? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A shared cache returns another user's result: identify the missing boundary. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain cache invalidation and tenant-safe limiting. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -766,16 +813,12 @@ Cloud inference changes authentication and operations while provider interfaces 
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes Bedrock IAM from direct API credentials? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why compare model capabilities rather than names alone? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: One provider throttles differently: how should the adapter expose that? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain provider portability and its limitations. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -814,16 +857,12 @@ Durable jobs decouple request acceptance from execution; leases coordinate worke
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is a job lease? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why acknowledge only after durable completion? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A worker dies after claiming work: describe recovery and duplicate risk. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain queue state transitions and recovery evidence. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -862,16 +901,12 @@ Retries must be bounded and safe under duplicate delivery.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes backoff from jitter? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why does a timeout not prove failure? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A write succeeds but its response is lost: design safe replay. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain idempotency and dead-letter handling. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -912,16 +947,12 @@ Explicit persisted state makes workflow recovery predictable.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is a durable checkpoint? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why persist state before acknowledging progress? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A crash occurs between tool completion and state update: what can be replayed? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain restart semantics and state invariants. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -960,16 +991,12 @@ Parallel execution reduces latency but introduces cancellation and partial failu
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is bounded concurrency? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why distinguish independent and dependent tasks? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: One parallel tool fails while others succeed: choose a failure policy. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain cancellation and partial results. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1008,16 +1035,12 @@ Human approval must bind an authenticated actor to a specific action.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is an exact-payload approval? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why must approval expire or be invalidated? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A payload changes after approval: identify the required denial. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain the sandbox boundary and human authority. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1056,16 +1079,12 @@ Reliable mutation requires reconciliation when remote outcomes are uncertain.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is an outbox? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why is at-least-once delivery not exactly-once effect? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A worker crashes after mutation but before acknowledgement: trace recovery. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain deduplication and reconciliation. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1105,8 +1124,6 @@ Framework adoption should follow measured needs rather than fashion; governance 
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is workflow replay? | Define two weekly terms in your own words; correct one misconception. |
@@ -1114,14 +1131,12 @@ Framework adoption should follow measured needs rather than fashion; governance 
 | 3 · Challenge | Scenario: A framework hides a retry boundary: what evidence would justify adoption? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Defend the adopt/defer ADR. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
 
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
-
 #### Session plan
 
 - [ ] **Session 1 · G · 2h:** Compare native state machine against LangGraph/Temporal requirements; run minimal sandbox spike.
-- [ ] **Session 2 · G · 2h:** Measure complexity and recovery behavior; write adopt/defer ADR, no mandatory rewrite.
+- [ ] **Session 2 · G · 2h:** Measure complexity and recovery behavior; write adopt/defer ADR, rewrite only if justified.
 - [ ] **Session 3 · G · 2h:** Review native workflow and repair outstanding reliability failures; demonstrate restart and replay.
-- [ ] **Session 4 · E · 2h:** Build governance matrix for permissions, connectors, retention, spend, audit, SOC2/HIPAA considerations without compliance claims.
+- [ ] **Session 4 · E · 2h:** Build governance matrix for permissions, connectors, retention, spend, audit, SOC2/HIPAA considerations identify applicable requirements.
 
 ---
 
@@ -1153,16 +1168,12 @@ Secure adoption requires deterministic enforcement and useful audit records.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is an audit event? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why distinguish administrative policy from runtime enforcement? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: An administrator disables a safeguard: what evidence and controls matter? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Teach approval limits and enterprise governance. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1203,16 +1214,12 @@ Evaluation design separates task quality, evidence and safety; holdout isolation
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes a rubric from a test fixture? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why separate safety gates from task accuracy? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: Two reviewers disagree on diagnosis quality: how should scoring proceed? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain eval reproducibility and versioning. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1251,16 +1258,12 @@ Frozen evaluations estimate generalization; failure analysis guides development 
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is a held-out set? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why does repeated tuning contaminate it? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A category fails despite high aggregate accuracy: what should be reported? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain development versus holdout discipline. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1299,16 +1302,12 @@ Shadow evaluation isolates model behavior from user decisions; controlled pilots
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is point-in-time replay? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why does shadow mode not prove business impact? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A postmortem appears in retrieval before its historical publication: what is wrong? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain controlled pilot design to the CTO. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1347,8 +1346,6 @@ Untrusted content and tool outputs are attack surfaces; test enforcement indepen
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is indirect prompt injection? | Define two weekly terms in your own words; correct one misconception. |
@@ -1356,13 +1353,11 @@ Untrusted content and tool outputs are attack surfaces; test enforcement indepen
 | 3 · Challenge | Scenario: A retrieved document asks the agent to disclose secrets: trace enforcement. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain adversarial tests and independent denial gates. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
 
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
-
 #### Session plan
 
 - [ ] **Session 1 · G · 2h:** Construct injection fixtures from docs, telemetry and tool results; measure unsafe behavior.
 - [ ] **Session 2 · G · 2h:** Test cross-tenant reads, egress restrictions, credential leakage and approval bypass; close critical defects.
-- [ ] **Session 3 · G · 2h:** Run security regression and classify residual risks; distinguish tests from guarantees.
+- [ ] **Session 3 · G · 2h:** Run security regression and classify residual risks; document test coverage and remaining risks.
 - [ ] **Session 4 · E · 2h:** Timed prototype 2: non-protected governed plugin demo with unexpected customer request; document delivery time and limits.
 
 ---
@@ -1395,16 +1390,12 @@ Optimize cost and latency against quality and safety constraints.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes cost per request from cost per successful task? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why measure quality alongside latency? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A cheaper model increases escalation: how would you compare options? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Defend a cost-quality decision with uncertainty. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1445,16 +1436,12 @@ Observability links distributed events and makes failures diagnosable.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes traces, metrics and logs? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why propagate correlation IDs? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A request is slow across several services: how would you localize it? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain telemetry without exposing sensitive payloads. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1493,8 +1480,6 @@ Operational readiness requires actionable procedures and measurable reliability 
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes SLI from SLO? | Define two weekly terms in your own words; correct one misconception. |
@@ -1502,13 +1487,11 @@ Operational readiness requires actionable procedures and measurable reliability 
 | 3 · Challenge | Scenario: A dependency outage triggers many alerts: prioritize response and recovery. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain a runbook and recovery drill evidence. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
 
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
-
 #### Session plan
 
 - [ ] **Session 1 · G · 2h:** Write runbooks for stuck jobs, provider throttling, unavailable tools and data leak response.
 - [ ] **Session 2 · G · 2h:** Run incident drill: recover queue and report incomplete results; measure recovery and record postmortem.
-- [ ] **Session 3 · G · 2h:** Review SLOs and workload assumptions with customer; update risk register, no unsupported MTTR claim.
+- [ ] **Session 3 · G · 2h:** Review SLOs and workload assumptions with customer; update risk register, review MTTR measurement plan.
 - [ ] **Session 4 · E · 2h:** Plan enterprise rollout cohorts, communications, support office hours and champion checks; simulate customer questions.
 
 ---
@@ -1541,16 +1524,12 @@ Cloud architecture combines network isolation, identity, cost and repeatable inf
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is a private subnet and IAM role? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why minimize public exposure? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A staging design has an internet-facing database: propose a safer boundary. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Defend architecture and cost assumptions. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1589,16 +1568,12 @@ Managed queues and containers require explicit delivery and deployment guarantee
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is SQS visibility timeout? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why can messages be delivered more than once? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A job exceeds visibility timeout: trace duplicate execution risk. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain staging deployment and redelivery tests. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1637,16 +1612,12 @@ Deployment verification checks actual environment behavior, not merely successfu
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is network reachability versus authentication? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why verify deployment rather than trust IaC intent? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A security group changes unexpectedly: what evidence establishes exposure? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain recovery and teardown verification. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1685,16 +1656,12 @@ Delivery pipelines enforce quality and authorization; rollback must account for 
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is a deployment gate? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why are backward-compatible migrations useful? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A rollback encounters a newer schema: describe options and risks. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain CI credentials and rollback evidence. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1733,8 +1700,6 @@ Representative load and injected faults expose bottlenecks and recovery limits.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is saturation? | Define two weekly terms in your own words; correct one misconception. |
@@ -1742,14 +1707,12 @@ Representative load and injected faults expose bottlenecks and recovery limits.
 | 3 · Challenge | Scenario: A burst causes throttling and queue growth: choose measurements and mitigations. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Compare baseline and final results fairly. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
 
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
-
 #### Session plan
 
 - [ ] **Session 1 · G · 2h:** Reproduce mocked 10 rps burst and realistic pilot workload; measure API acceptance p95.
 - [ ] **Session 2 · G · 2h:** Inject model throttling, database interruption and worker death; verify recovery and bounded retries.
 - [ ] **Session 3 · G · 2h:** Compare final vs baseline load and cost; test real model only on small budgeted sample.
-- [ ] **Session 4 · E · 2h:** Draft public technical article on durable agents with measured evidence, no invented production results.
+- [ ] **Session 4 · E · 2h:** Draft public technical article on durable agents using measured test results.
 
 ---
 
@@ -1781,16 +1744,12 @@ Release decisions require traceable evidence and explicit residual risk.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is a release blocker? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why distinguish recovery time from data loss? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: Load tests pass but tenant isolation fails: decide whether to release. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Defend release decision and residual risk. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1801,7 +1760,7 @@ Record each response as **0** (unable), **1** (with help), or **2** (independent
 
 ---
 
-## Phase 07 — Professional readiness
+## Phase 07 — Final review and developer enablement
 
 ### Week 37 — Customer handoff
 
@@ -1831,16 +1790,12 @@ Handoff transfers operational ownership and communicates limitations.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes acceptance from deployment? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why label simulated outcomes? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A customer asks for proven MTTR savings: what can you claim? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Deliver a concise handoff and support boundary. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1879,16 +1834,12 @@ Enterprise adoption is phased, measured and supported by internal champions.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is a technical champion? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why is usage not proof of productivity? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: Adoption rises but quality falls: what metrics and interventions matter? | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Teach a champion to evaluate safe usage. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -1927,22 +1878,18 @@ Public evidence must be reproducible, sanitized and honest about limitations.
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What makes an artifact reproducible? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why sanitize portfolio evidence? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A demo includes customer-like identifiers: what should be checked before publishing? | State your decision, alternative, failure mode and verification method. |
-| 4 · Demonstrate | Teach-back: Explain the project honestly to an interviewer. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
+| 4 · Demonstrate | Teach-back: Present the project to a technical audience, including its architectural decisions and limitations. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
 
 #### Session plan
 
 - [ ] **Session 1 · E · 2h:** Draft technical article on permission-aware MCP with diagrams, tests and limitations.
 - [ ] **Session 2 · E · 2h:** Package sanitized workshop repository or directory; reproduce setup from clean clone.
-- [ ] **Session 3 · E · 2h:** Finalize evaluation/security case study and recorded demo if feasible; review disclosure and publication approval.
+- [ ] **Session 3 · E · 2h:** Finalize evaluation/security case study and recorded demo if feasible; review materials for sensitive information.
 - [ ] **Session 4 · E · 2h:** Run train-the-trainer simulation with unfamiliar questions; improve facilitator guide and proficiency rubric.
 
 ---
@@ -1975,16 +1922,12 @@ Independent remediation targets demonstrated weaknesses through transfer to unfa
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What invariant does your backend variant need? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why test failure paths before optimizing? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: Choose an unfamiliar concurrency or persistence failure and reason through it. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain your independent solution and remaining weakness. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -2023,16 +1966,12 @@ AI remediation tests diagnosis and security reasoning without relying on generat
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes retrieval failure from model failure? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why isolate variables during regression diagnosis? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A correct tool response leads to an incorrect conclusion: design a diagnostic test. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Defend your independent fix and safety trade-offs. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -2071,8 +2010,6 @@ Final defense connects requirements, architecture, operational evidence and lear
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What is requirements traceability? | Define two weekly terms in your own words; correct one misconception. |
@@ -2080,14 +2017,12 @@ Final defense connects requirements, architecture, operational evidence and lear
 | 3 · Challenge | Scenario: A requirement has no passing test: decide how to report it. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Present the architecture end to end and identify gaps. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
 
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
-
 #### Session plan
 
 - [ ] **Session 1 · G · 2h:** Conduct independent architecture defense covering end-to-end request, trust, state and failure flow.
 - [ ] **Session 2 · G · 2h:** Run final acceptance and clean-clone checks; record open limitations and final cost.
-- [ ] **Session 3 · E · 2h:** Finalize adoption strategy, product feedback and portfolio evidence; verify no publication without approval.
-- [ ] **Session 4 · E · 2h:** Conduct end-of-residency retrospective against original discovery transcript and role requirements; document next learning goals.
+- [ ] **Session 3 · E · 2h:** Finalize adoption strategy, product feedback and portfolio evidence; verify review materials before publishing.
+- [ ] **Session 4 · E · 2h:** Conduct final retrospective against original discovery transcript and learning objectives; document next learning goals.
 
 ---
 
@@ -2119,16 +2054,12 @@ Reserve time closes blockers rather than adding scope; readiness depends on evid
 
 #### Daily learning check-ins
 
-*Use these independently of implementation progress. Answer from memory first; consult the weekly references or mentor afterward. If a topic is new, record a hypothesis and revisit it at closing.*
-
 | Session | Opening / focused learning | Closing evidence |
 |---|---|---|
 | 1 · Understand | Mini-quiz: What distinguishes a blocker from optional polish? | Define two weekly terms in your own words; correct one misconception. |
 | 2 · Apply | FAQ: Why preserve reserve rather than add scope? | Answer with an Atlas example and one relevant test or observation. |
 | 3 · Challenge | Scenario: A protected competency remains unverified: choose remediation or extension. | State your decision, alternative, failure mode and verification method. |
 | 4 · Demonstrate | Teach-back: Explain the final evidence and next learning priority. | Re-answer the weekly knowledge checkpoint; recall one earlier concept and connect it to this week. |
-
-Record each response as **0** (unable), **1** (with help), or **2** (independent and accurate). Revisit scores below 2 at the next opening; mentor feedback is not a substitute for your own answer. Keep formal competency assessments separate.
 
 #### Session plan
 
@@ -2139,7 +2070,7 @@ Record each response as **0** (unable), **1** (with help), or **2** (independent
 
 ## Reference index — targeted reading
 
-Primary research: [large-codebase Claude Code guidance](https://claude.com/resources/articles/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start), [enterprise coding-agent security guide](https://claude.com/resources/articles/enterprise-guide-to-securing-coding-agents), AWS [timeouts/retries/backoff](https://d1.awsstatic.com/builderslibrary/pdfs/timeouts-retries-and-backoff-with-jitter.pdf) and [SQS/outbox guidance](https://builder.aws.com/content/3JoT1IGGqqckc82pZpWlBuRClcP/building-reliable-microservices-with-amazon-sqs-and-the-outbox-pattern). Additional official documentation below is a recommended reading index, not a claim that every linked page was individually inspected.
+Additional reading: [large-codebase Claude Code guidance](https://claude.com/resources/articles/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start), [enterprise coding-agent security guide](https://claude.com/resources/articles/enterprise-guide-to-securing-coding-agents), AWS [timeouts/retries/backoff](https://d1.awsstatic.com/builderslibrary/pdfs/timeouts-retries-and-backoff-with-jitter.pdf) and [SQS/outbox guidance](https://builder.aws.com/content/3JoT1IGGqqckc82pZpWlBuRClcP/building-reliable-microservices-with-amazon-sqs-and-the-outbox-pattern).
 
 | ID | Resource and focus |
 |---|---|
@@ -2168,14 +2099,31 @@ Primary research: [large-codebase Claude Code guidance](https://claude.com/resou
 | R23 | [AWS ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/), RDS, IAM, Secrets Manager, CloudWatch and [Terraform](https://developer.hashicorp.com/terraform/docs), networking, state and teardown |
 | R24 | [GitHub Actions docs](https://docs.github.com/en/actions), CI/CD, OIDC and environments; [Trivy](https://trivy.dev/latest/docs/), image and secret scanning |
 
-## Coverage and release discipline
+## Curriculum coverage and final review
 
-F1 API (weeks 1–6, 16); F2 tool loop (4–6, 10); F3 retrieval (8–12); F4 state/recovery (7, 16–19, 32–36); F5 sandbox approval (20–23); F6 access (9–12, 27); F7 audit (21–23, 27, 29); F8 telemetry (13, 28–30, 33–36). Confirm each with a test path and run output in the final acceptance matrix. Workstreams share the repository and synthetic fixtures. Workshops in weeks 5, 11, 17, 23, 29 and 37. Assessments in weeks 4, 8, 12, 16, 20, 24, 28, 32, 36 and 41 (the last is a delayed checkpoint to accommodate handoff; use a brief week-40 score update within session 4, no additional hours), plus final review. Unit 25–26 remediation is included near the end rather than assumed unnecessary.
+| Feature | Weeks |
+|---|---|
+| F1 — API | 1–6, 16 |
+| F2 — Tool loop | 4–6, 10 |
+| F3 — Retrieval | 8–12 |
+| F4 — State and recovery | 7, 16–19, 32–36 |
+| F5 — Sandbox approval | 20–23 |
+| F6 — Access | 9–12, 27 |
+| F7 — Audit | 21–23, 27, 29 |
+| F8 — Telemetry | 13, 28–30, 33–36 |
 
-Pilot baselines of 48→31 minutes diagnosis and 112→95 minutes resolution are provisional junior targets; validate scope and baseline with simulated customer. Shadow validates quality, not effect on actual MTTR. Do not conflate 180 incidents/month across categories with hypothetical 50,000 requests/day capacity. Test p95 API acceptance under mocked burst separately from investigation latency. Report per-category evaluation results, safety violations, cost and uncertainty. An 85% synthetic task result does not override a safety failure. Production is not authorized; all output writes separately permissioned, all mutations confined to approved sandbox. Real large-audience teaching, enterprise admin access and live production impact cannot be certified by this plan.
+Link each feature to its tests and results in the final acceptance matrix. Both workstreams use the same repository and synthetic fixtures.
+
+**Workshops:** Weeks 5, 11, 17, 23, 29 and 37.
+
+**Assessments:** Weeks 4, 8, 12, 16, 20, 24, 28, 32, 36 and 41, plus the final review. Update scores in week 40, session 4. Revisit weak areas from weeks 25–26 during the final review.
+
+**Pilot targets:** Reduce junior engineer diagnosis time from 48 to 31 minutes and resolution time from 112 to 95 minutes. Confirm the baseline and scope during simulated discovery. Shadow evaluation measures investigation quality; a controlled pilot measures actual MTTR improvement.
+
+**Performance and quality:** Treat the 180 monthly incidents and the hypothetical 50,000 daily requests as separate workloads. Measure p95 API acceptance latency under mocked burst load separately from investigation latency. Report evaluation results by category, safety failures, cost and uncertainty. The provisional 85% synthetic task-success target does not replace the safety gates. Require separate permissions for output writes and keep mutations in the approved sandbox.
 
 ## Session record template
 
 `Week / session | mode | planned vs actual time | assignment | check-in prompt / answer / score / correction | artifact/commit | tests and results | independent explanation | unresolved risk | next step`.
 
-Review plan changes in an ADR or progress entry. Preserve master specification as governing baseline; seek approval for deviations. Publish sanitized artifacts only with explicit approval.
+Record changes to the plan in your progress notes or an ADR. Review public artifacts for sensitive information before publishing.
