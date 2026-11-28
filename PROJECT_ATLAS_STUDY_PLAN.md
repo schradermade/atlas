@@ -51,7 +51,7 @@ Review local changes before pulling if the working tree is not clean. Open the s
 
 #### 2. Start a mentor session
 
-Copy into ChatGPT and fill in the week and session:
+In Codex, start a new session in this repository and fill in the week and session:
 
 ```text
 Atlas — Week [number], Session [number]
@@ -84,10 +84,10 @@ For formal assessments, spend 30 minutes each on independent coding, design, fai
 
 | Responsibility | Tool |
 |---|---|
-| Instruction, quizzes, customer simulations and architecture discussions | ChatGPT |
-| Repository navigation, debugging and code review | Codex or Claude Code |
+| Instruction, quizzes, customer simulations, architecture discussions and study guidance | Codex |
+| Repository navigation, debugging and code review | Codex |
 | Core engineering and independent assessments | You |
-| Boilerplate and automation | Codex or Claude Code |
+| Boilerplate and automation | Codex |
 | Progress and source control | Repository / GitHub |
 
 Start each task in **Learning Mode**: solve problems independently and ask for hints or review. Use **Collaborative Mode** for explicitly requested debugging or implementation assistance and **Professional Mode** for authorized non-protected work. Follow `AGENTS.md` and `CLAUDE.md` for protected components and tool permissions. Complete formal independent assessments without AI. Approve commits, pushes, deployments and publication yourself.
@@ -96,7 +96,7 @@ Before implementing, define inputs, outputs, a failure case and a test. Afterwar
 
 #### 5. Close the session
 
-Copy into ChatGPT:
+In Codex, close the session with:
 
 ```text
 Atlas — End of Week [number], Session [number]
@@ -114,7 +114,7 @@ Record actual hours, answers and corrections, artifacts, test results, decisions
 
 #### 6. Resume or adjust the plan
 
-When starting a new conversation, share the master specification, relevant study plan, progress, backlog and repository instructions. Include relevant design decisions or test results. ChatGPT cannot automatically see your local changes.
+When starting a new conversation, reference the master specification, relevant study plan, progress, backlog and repository instructions. Include relevant design decisions or test results. Codex can inspect the repository directly, but still provide important context when it lives outside tracked files.
 
 If blocked, record what failed, what you tried and your next step. Ask for a hint or move to an independent task. After a missed day, resume the next check-in rather than doubling the workload. Repeat failed assessments or prerequisite tests before dependent work.
 

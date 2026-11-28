@@ -19,6 +19,12 @@ Acceptance criteria:
 - Define measurable success criteria.
 - Identify unresolved customer questions.
 
+Progress notes:
+
+- Initial customer discovery one-pager drafted at `docs/architecture/001-customer-discovery.md`.
+- Follow-on technical discovery is still required before ATL-001 can be closed.
+- Remaining work: finalize pilot scope, integration/security constraints, and evaluation/release criteria.
+
 ### ATL-002 — Initial System Design
 
 Status: Pending

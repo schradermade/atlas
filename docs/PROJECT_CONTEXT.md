@@ -52,6 +52,10 @@ Learning Mode is the default.
 AI assistants should act as mentors, reviewers, and technical
 collaborators rather than autonomous implementers.
 
+Codex in this repository is the primary environment for Atlas study
+sessions, mentoring, customer simulations, architecture review,
+debugging, and documentation updates.
+
 See AGENTS.md for detailed instructions.
 
 ## Source of Truth

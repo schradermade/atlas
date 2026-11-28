@@ -31,6 +31,7 @@
 - [x] Complete project initialization
 - [x] Complete ATL-003 — Repository and Environment
 - [x] Start ATL-001 — Customer Discovery
+- [x] Draft `docs/architecture/001-customer-discovery.md`
 
 ## Technical Decisions
 
@@ -39,10 +40,13 @@
 - Docker for local infrastructure
 - GitHub for version control
 - VS Code as primary development environment
+- Codex as the primary Atlas mentoring and workflow environment
 - Local-first development
 - Modular monolith as initial architecture
 - Native implementations before higher-level abstractions
 - Learning Mode as default AI collaboration mode
+- Discovery deliverables should distinguish confirmed alignment, provisional targets, scope boundaries, and outstanding questions before architecture design begins
+- V1 product scope boundaries should be documented separately from items out of scope for a discovery document
 - GitHub remote established at `github.com/schradermade/atlas`
 - Repository baseline captured in initial commit `a7f87d6`
 
@@ -56,8 +60,9 @@
 
 ## Open Items
 
-- Complete customer discovery artifacts for ATL-001
-- Capture unresolved customer questions and success criteria
+- Resolve pilot scope for ATL-001, including selected incident categories, low-complexity definition, and pilot users
+- Confirm integration and security constraints, including accessible systems, auth/network controls, and API limitations
+- Define evaluation and release criteria, including sample size, review method, and thresholds for progressing beyond discovery
 
 ## Known Technical Concerns
 
@@ -71,4 +76,4 @@ None currently identified.
 
 ## Next Assignment
 
-ATL-001: Customer Discovery
+ATL-001: Prepare follow-on technical discovery questions and complete customer discovery
